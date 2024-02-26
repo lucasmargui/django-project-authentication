@@ -9,6 +9,9 @@
 
 ## Criação do todo_list
 
+<details>
+  <summary>Clique para mostrar conteúdo</summary>
+  
 Projeto inicial criado com estrutura principal, alterando urls.py para adicionar base.urls para adicionar os packages. 
  ```
 django-admin startproject todo_list
@@ -85,18 +88,32 @@ O caminho para achar o arquivo html será passado através do atributo template_
 path('register/', RegisterPage.as_view(), name='register'),
 ```
 
+</details>
+
+
+
 
 ## Criação Template
 
+<details>
+  <summary>Clique para mostrar conteúdo</summary>
+  
 Diretório responsável por armazenar as páginas htmls que serão renderizadas.
 
 Por convenção, dentro de "template" é utilizado nome_do_projeto/nome_da_view.html para que framework reconheça o caminho.
+
+</details>
+
+
+
  
 
 ## Views.py
+
+<details>
+  <summary>Clique para mostrar conteúdo</summary>
+  
 Responsável pelo controller de renderização de views e fluxo de dados.
-
-
 
 
 ### CustomLoginView(LoginView)
@@ -222,16 +239,23 @@ def get_queryset(self):
         return self.model.objects.filter(user=owner)
 ```
 
+</details>
+
+
+
+
 # Resultado
 
+
+
 ## Login
-<img src="https://cdn.discordapp.com/attachments/1046824853015113789/1208151548165890058/image.png?ex=65e23dcf&is=65cfc8cf&hm=68d7841323021166cad6330bcbb95a45e9b9a0907f8d52aca434e5e748e90933&" alt="">
+<img src="https://github.com/lucasmargui/Django_Projeto_Autenticacao/assets/157809964/da012078-075e-4e77-befb-db40d2be57f5" alt="">
 
 ## Registro
-<img src="https://cdn.discordapp.com/attachments/1046824853015113789/1208151471972155393/image.png?ex=65e23dbd&is=65cfc8bd&hm=b620949867bf8294ad4e078d341de6175f7a6e7e05c1199ba436fc32fe262b94&" alt="">
+<img src="https://github.com/lucasmargui/Django_Projeto_Autenticacao/assets/157809964/302b1fd5-694f-432b-9bb0-08063056be1e" alt="">
 
 ## Index
-<img src="https://cdn.discordapp.com/attachments/1046824853015113789/1208150467717373992/image.png?ex=65e23ccd&is=65cfc7cd&hm=a951fafb8228fce5f396df0a77a65e524f07b121dd215e8d62aa937f109c2ec0&" alt="">
+<img src="https://github.com/lucasmargui/Django_Projeto_Autenticacao/assets/157809964/718bd04c-21c8-45cb-adb4-39c6e1575147" alt="">
 
 
 
