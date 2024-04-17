@@ -1,4 +1,4 @@
-<H1 align="center">Authentication Structure</H1>
+<H1 align="center">Authentication</H1>
 <p align="center">🚀 Project to create an authentication framework using Django for future references</p>
 
 ## Resources Used
