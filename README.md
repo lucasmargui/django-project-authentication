@@ -1,18 +1,28 @@
-<H1 align="center">Estrutura Autenticação</H1>
-<p align="center">🚀 Projeto de criação de uma estrutura de autenticação utilizando Django para referências futuras</p>
+<H1 align="center">Authentication Structure</H1>
+<p align="center">🚀 Project to create an authentication framework using Django for future references</p>
 
-## Recursos Utilizados
+## Resources Used
 
 * Django 5.0.2
 * Python 3.10
 
 
-## Criação do todo_list
+<div align="center">
+  <h2> Login </h2>
+  <img src="https://github.com/lucasmargui/Django_Projeto_Autenticacao/assets/157809964/da012078-075e-4e77-befb-db40d2be57f5" style="width:70%">
+  <h2> Register </h2>
+  <img src="https://github.com/lucasmargui/Django_Projeto_Autenticacao/assets/157809964/302b1fd5-694f-432b-9bb0-08063056be1e" style="width:70%">
+  <h2> Index </h2>
+  <img src="https://github.com/lucasmargui/Django_Projeto_Autenticacao/assets/157809964/718bd04c-21c8-45cb-adb4-39c6e1575147" style="width:70%">
+</div>
+
+
+## Create todo_list
 
 <details>
-  <summary>Clique para mostrar conteúdo</summary>
-  
-Projeto inicial criado com estrutura principal, alterando urls.py para adicionar base.urls para adicionar os packages. 
+ <summary>Click to show content</summary>
+
+Initial project created with main structure, changing urls.py to add base.urls to add the packages.
  ```
 django-admin startproject todo_list
  ```
@@ -25,8 +35,8 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('base.urls')),
+ path('admin/', admin.site.urls),
+ path('', include('base.urls')),
 ]
 ```
 
@@ -34,56 +44,56 @@ urlpatterns = [
 
 ```
 INSTALLED_APPS = [
-    'base.apps.BaseConfig',
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
+ 'base.apps.BaseConfig',
+ 'django.contrib.admin',
+ 'django.contrib.auth',
+ 'django.contrib.contenttypes',
+ 'django.contrib.sessions',
+ 'django.contrib.messages',
+ 'django.contrib.staticfiles',
 ]
 ```
 
 
 
-## Criação da base
+## Create base app
 
-Criação de um pacote que será responsável pela lógica da autenticação.
+Creation of a package that will be responsible for the authentication logic.
 
  ```
 python manage.py startapp base
  ```
 
- 
+
 ### urls.py
 
-Possuí o mapeamento das rotas.
+I have the route mapping.
 
-Os caminhos e as respectivas views que serão renderizados utilizando Classes como Views.
+The paths and respective views that will be rendered using Classes as Views.
 
 ```
-    path('login/', CustomLoginView.as_view(), name='login'),
-    path('logout/', LogoutView.as_view(next_page='login'), name='logout'),
-    path('register/', RegisterPage.as_view(), name='register'),
+ path('login/', CustomLoginView.as_view(), name='login'),
+ path('logout/', LogoutView.as_view(next_page='login'), name='logout'),
+ path('register/', RegisterPage.as_view(), name='register'),
 ```
 
 #### LoginView
 
-O caminho para achar o arquivo html será passado através do atributo template_name de CustomLoginView herdando as propriedades da Classe LoginView e a modificando em views.py.
+The path to find the html file will be passed through the template_name attribute of CustomLoginView, inheriting the properties of the LoginView Class and modifying it in views.py.
 ```
 path('login/', CustomLoginView.as_view(), name='login'),
 ```
 
 #### LogoutView
 
-Essa view importará a Classe LogoutView de forma nativa e utilizará seu atributo "next-page='login'" para redirecionar para página de login no caso do usuário encerrar a sessão.
+This view will import the LogoutView Class natively and will use its "next-page='login'" attribute to redirect to the login page if the user closes the session.
 ```
 path('logout/', LogoutView.as_view(next_page='login'), name='logout'),
 ```
 
 #### RegisterPage
 
-O caminho para achar o arquivo html será passado através do atributo template_name de RegisterPage herdando as propriedades da Classe FormView e a modificando em views.py.
+The path to find the html file will be passed through the template_name attribute of RegisterPage, inheriting the properties of the FormView Class and modifying it in views.py.
 ```
 path('register/', RegisterPage.as_view(), name='register'),
 ```
@@ -92,63 +102,62 @@ path('register/', RegisterPage.as_view(), name='register'),
 
 
 
-
-## Criação Template
+## Template Creation
 
 <details>
-  <summary>Clique para mostrar conteúdo</summary>
-  
-Diretório responsável por armazenar as páginas htmls que serão renderizadas.
+ <summary>Click to show content</summary>
 
-Por convenção, dentro de "template" é utilizado nome_do_projeto/nome_da_view.html para que framework reconheça o caminho.
+Directory responsible for storing the html pages that will be rendered.
+
+By convention, within "template" project_name/view_name.html is used so that the framework recognizes the path.
 
 </details>
 
 
 
- 
+
 
 ## Views.py
 
 <details>
-  <summary>Clique para mostrar conteúdo</summary>
-  
-Responsável pelo controller de renderização de views e fluxo de dados.
+ <summary>Click to show content</summary>
+
+Responsible for the view rendering and data flow controller.
 
 
 ### CustomLoginView(LoginView)
 
-Herdando a classe LoginView e modificando seus atributos, demonstrando uma das vantagens da utilização de classes como Views.
+Inheriting the LoginView class and modifying its attributes, demonstrating one of the advantages of using classes like Views.
 ```
 template_name = 'base/login.html'
 fields = '__all__'
 redirect_authenticated_user = True
 
 def get_success_url(self):
-  return reverse_lazy('tasks')
+ return reverse_lazy('tasks')
 ```
 
 
 
-Alterando template_name para renderização de um caminho personalizado para achar o arquivo html.
+Changing template_name to render a custom path to find the html file.
 ```
 template_name = 'base/login.html'
 ```
 
-Utilizando o formulario nativo de LoginView passando todos os seus campos para renderizar no arquivo html.
+Using the native LoginView form, passing all its fields to render in the html file.
 ```
 fields = '__all__'
 ```
 
-Se o usuário estiver autenticado, redireciona-lo para o caminho especificado.
+If the user is authenticated, redirect him to the specified path.
 ```
 redirect_authenticated_user = True
 ```
 
-Alterando um método base de LoginView que foi herdado para CustomLoginView e caso o login for efetuado ser redirecionado para o caminho 'tasks'.
+Changing a LoginView base method that was inherited to CustomLoginView and if the login is performed, it will be redirected to the 'tasks' path.
 ```
 def get_success_url(self):
-  return reverse_lazy('tasks')
+ return reverse_lazy('tasks')
 ```
 
 
@@ -156,7 +165,7 @@ def get_success_url(self):
 
 ### RegisterPage(FormView)
 
-Herdando a classe FormView e modificando seus atributos.
+Inheriting the FormView class and modifying its attributes.
 
 ```
 template_name = 'base/register.html'
@@ -165,78 +174,78 @@ redirect_authenticated_user = True
 success_url = reverse_lazy('tasks')
 
 def form_valid(self, form):
-    user = form.save()
-    if user is not None:
-        login(self.request, user)
-    return super(RegisterPage, self).form_valid(form)
+ user = form.save()
+ if user is not None:
+ login(self.request, user)
+ return super(RegisterPage, self).form_valid(form)
 
 def get(self, *args, **kwargs):
-    if self.request.user.is_authenticated:
-        return redirect('tasks')
-    return super(RegisterPage, self).get(*args, **kwargs)
+ if self.request.user.is_authenticated:
+ return redirect('tasks')
+ return super(RegisterPage, self).get(*args, **kwargs)
 ```
 
-Alterando template_name para renderização de um caminho personalizado para achar o arquivo html.
+Changing template_name to render a custom path to find the html file.
 ```
 template_name = 'base/register.html'
 ```
 
-Utilizando o formulario nativo de FormView passando todos os seus campos para renderizar no arquivo html.
+Using the native FormView form, passing all its fields to render in the html file.
 ```
 form_class = UserCreationForm
 ```
 
-Se o usuário estiver autenticado, redireciona-lo para o caminho especificado.
+If the user is authenticated, redirect him to the specified path.
 ```
 redirect_authenticated_user = True
 ```
 
 
-Se o registro for efetuado com sucesso ser redirecionado para o caminho 'tasks'.
+If registration is successful, you will be redirected to the 'tasks' path.
 ```
 success_url = reverse_lazy('tasks')
 ```
 
 
-Reescrevendo um método nativo, caso o formulário for válido armazenar em user e se o usuario não for None significando que foi registrado então efetuar o login, caso contrário utilizar o método nativo super da classe FormView e redirecionando para RegisterPage novamente.
+Rewriting a native method, if the form is valid to store in user and if the user is not None meaning that it was registered then log in, otherwise use the native super method of the FormView class and redirecting to RegisterPage again.
 ```
 def form_valid(self, form):
-    user = form.save()
-    if user is not None:
-        login(self.request, user)
-    return super(RegisterPage, self).form_valid(form)
+ user = form.save()
+ if user is not None:
+ login(self.request, user)
+ return super(RegisterPage, self).form_valid(form)
 ```
 
-Reescrevendo um método nativo, se o usuário ja estiver autenticado e tentar entrar nesse caminho de registro será redirecionado para o caminho 'tasks'.
+Rewriting a native method, if the user is already authenticated and tries to enter this registry path, they will be redirected to the 'tasks' path.
 ```
 def get(self, *args, **kwargs):
-    if self.request.user.is_authenticated:
-        return redirect('tasks')
-    return super(RegisterPage, self).get(*args, **kwargs)
+ if self.request.user.is_authenticated:
+ return redirect('tasks')
+ return super(RegisterPage, self).get(*args, **kwargs)
 ```
 
 
 
 ### TaskCreate(LoginRequiredMixin, CreateView):
-Herdando a classe LoginRequiredMixin como forma de verificação de autenticação e CreateView para renderização da View e modificando seus atributos.
+Inheriting the LoginRequiredMixin class as a way of checking authentication and CreateView for rendering the View and modifying its attributes.
 
 
-Reescrevendo um método nativo, atribuindo o usuário logado no registro da task, assim usuário X não poderá registrar uma task como usuário Y.
+Rewriting a native method, assigning the logged in user to the task registration, so user X will not be able to register a task as user Y.
 ```
- def form_valid(self, form): 
-        form.instance.user = self.request.user
-        return super(TaskCreate, self).form_valid(form)
+ def form_valid(self, form):
+ form.instance.user = self.request.user
+ return super(TaskCreate, self).form_valid(form)
 ```
 
 ### DeleteView(LoginRequiredMixin, DeleteView):
-Herdando a classe LoginRequiredMixin como forma de verificação de autenticação e DeleteView para renderização da View e modificando seus atributos.
+Inheriting the LoginRequiredMixin class as a way of checking authentication and DeleteView for rendering the View and modifying its attributes.
 
 
-Reescrevendo um método nativo.
+Rewriting a native method.
 ```
 def get_queryset(self):
-        owner = self.request.user
-        return self.model.objects.filter(user=owner)
+ owner = self.request.user
+ return self.model.objects.filter(user=owner)
 ```
 
 </details>
@@ -244,18 +253,7 @@ def get_queryset(self):
 
 
 
-# Resultado
 
-
-
-## Login
-<img src="https://github.com/lucasmargui/Django_Projeto_Autenticacao/assets/157809964/da012078-075e-4e77-befb-db40d2be57f5" alt="">
-
-## Registro
-<img src="https://github.com/lucasmargui/Django_Projeto_Autenticacao/assets/157809964/302b1fd5-694f-432b-9bb0-08063056be1e" alt="">
-
-## Index
-<img src="https://github.com/lucasmargui/Django_Projeto_Autenticacao/assets/157809964/718bd04c-21c8-45cb-adb4-39c6e1575147" alt="">
 
 
 
