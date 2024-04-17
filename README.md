@@ -7,14 +7,18 @@
 * Python 3.10
 
 
+
 <div align="center">
   <h3> Login </h3>
-  <img src="https://github.com/lucasmargui/Django_Projeto_Autenticacao/assets/157809964/da012078-075e-4e77-befb-db40d2be57f5" style="width:70%">
+  <img src="https://github.com/lucasmargui/django-project-authentication/assets/157809964/89f1d272-481f-436a-b370-f7dcdf1e74d6" style="width:50%">
   <h3> Register </h3>
-  <img src="https://github.com/lucasmargui/Django_Projeto_Autenticacao/assets/157809964/302b1fd5-694f-432b-9bb0-08063056be1e" style="width:70%">
+  <img src="https://github.com/lucasmargui/django-project-authentication/assets/157809964/fc55c3d9-8b5e-4340-987a-afdfc7c3f682" style="width:50%">
   <h3> Index </h3>
-  <img src="https://github.com/lucasmargui/Django_Projeto_Autenticacao/assets/157809964/718bd04c-21c8-45cb-adb4-39c6e1575147" style="width:70%">
+  <img src="https://github.com/lucasmargui/django-project-authentication/assets/157809964/bd139bf4-6b00-420e-9bce-8fb9b6b66fa2" style="width:50%">
 </div>
+
+
+
 
 
 ## Create todo_list
