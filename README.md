@@ -8,11 +8,11 @@
 
 
 <div align="center">
-  <h2> Login </h2>
+  <h3> Login </h3>
   <img src="https://github.com/lucasmargui/Django_Projeto_Autenticacao/assets/157809964/da012078-075e-4e77-befb-db40d2be57f5" style="width:70%">
-  <h2> Register </h2>
+  <h3> Register </h3>
   <img src="https://github.com/lucasmargui/Django_Projeto_Autenticacao/assets/157809964/302b1fd5-694f-432b-9bb0-08063056be1e" style="width:70%">
-  <h2> Index </h2>
+  <h3> Index </h3>
   <img src="https://github.com/lucasmargui/Django_Projeto_Autenticacao/assets/157809964/718bd04c-21c8-45cb-adb4-39c6e1575147" style="width:70%">
 </div>
 
